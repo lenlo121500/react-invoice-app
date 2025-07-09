@@ -1,5 +1,5 @@
 import React from "react";
-import { type Product } from "@/context/invoice/invoice-context";
+import { type Product } from "@/store/useInvoiceStore";
 
 interface InvoicePrintSectionProps {
   invoiceNumber: string;

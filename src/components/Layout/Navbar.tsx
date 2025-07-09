@@ -1,10 +1,10 @@
-import { useAuth } from "@/context/auth/use-auth";
 import { FileText, Home, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
+import { useAuthStore } from "@/store/useAuthStore";
 
 const Navbar = () => {
-  const { user, logout, isAuthenticated } = useAuth();
+  const { user, logout, isAuthenticated } = useAuthStore();
   const navigate = useNavigate();
 
   const handleLogout = () => {

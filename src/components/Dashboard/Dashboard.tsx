@@ -1,5 +1,3 @@
-import { useAuth } from "@/context/auth/use-auth";
-import { useInvoice } from "@/context/invoice/use-invoice";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import { DollarSign, FileText, Plus, Users } from "lucide-react";
@@ -10,10 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import { useAuthStore } from "@/store/useAuthStore";
+import { useInvoiceStore } from "@/store/useInvoiceStore";
 
 const Dashboard = () => {
-  const { user } = useAuth();
-  const { invoices } = useInvoice();
+  const { user } = useAuthStore();
+  const { invoices } = useInvoiceStore();
 
   const userInvoices = invoices.filter(
     (invoice) => invoice.userId === user?.id

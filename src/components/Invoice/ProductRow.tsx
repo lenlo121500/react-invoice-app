@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Trash2 } from "lucide-react";
-import { type Product } from "@/context/invoice/invoice-context";
+import { type Product } from "@/store/useInvoiceStore";
 
 interface ProductRowProps {
   product: Product;

@@ -1,13 +1,17 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { Plus } from "lucide-react";
-import { type Product } from "@/context/invoice/invoice-context";
+import { type Product } from "@/store/useInvoiceStore";
 import ProductRow from "./ProductRow";
 
 interface ProductsTableProps {
   products: Product[];
   onAddProduct: () => void;
-  onUpdateProduct: (productId: string, field: keyof Product, value: string | number) => void;
+  onUpdateProduct: (
+    productId: string,
+    field: keyof Product,
+    value: string | number
+  ) => void;
   onRemoveProduct: (productId: string) => void;
   total: number;
 }
@@ -36,18 +40,10 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
               <th className="border border-gray-300 p-2 text-left">
                 Product Name
               </th>
-              <th className="border border-gray-300 p-2 text-left">
-                Quantity
-              </th>
-              <th className="border border-gray-300 p-2 text-left">
-                Price
-              </th>
-              <th className="border border-gray-300 p-2 text-left">
-                Subtotal
-              </th>
-              <th className="border border-gray-300 p-2 text-left">
-                Action
-              </th>
+              <th className="border border-gray-300 p-2 text-left">Quantity</th>
+              <th className="border border-gray-300 p-2 text-left">Price</th>
+              <th className="border border-gray-300 p-2 text-left">Subtotal</th>
+              <th className="border border-gray-300 p-2 text-left">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -65,9 +61,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({
       </div>
 
       <div className="flex justify-end">
-        <div className="text-xl font-bold">
-          Total: ${total.toFixed(2)}
-        </div>
+        <div className="text-xl font-bold">Total: ${total.toFixed(2)}</div>
       </div>
     </div>
   );

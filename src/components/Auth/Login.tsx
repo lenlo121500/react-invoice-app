@@ -1,4 +1,3 @@
-import { useAuth } from "@/context/auth/use-auth";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -13,6 +12,7 @@ import { Alert, AlertDescription } from "../ui/alert";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { useAuthStore } from "@/store/useAuthStore";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { login } = useAuth();
+  const { login } = useAuthStore();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {

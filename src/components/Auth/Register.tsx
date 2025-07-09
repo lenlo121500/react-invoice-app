@@ -1,4 +1,4 @@
-import { useAuth } from "@/context/auth/use-auth";
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -14,6 +14,7 @@ import { Alert, AlertDescription } from "../ui/alert";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { useAuthStore } from "@/store/useAuthStore";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -25,7 +26,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { register } = useAuth();
+  const { register } = useAuthStore();
   const navigate = useNavigate();
 
   const validateForm = () => {

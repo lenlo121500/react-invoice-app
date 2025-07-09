@@ -1,5 +1,3 @@
-import { useAuth } from "@/context/auth/use-auth";
-import { useInvoice } from "@/context/invoice/use-invoice";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
@@ -8,10 +6,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Alert, AlertDescription } from "../ui/alert";
 import { toast } from "sonner";
+import { useAuthStore } from "@/store/useAuthStore";
+import { useInvoiceStore } from "@/store/useInvoiceStore";
 
 const InvoiceList = () => {
-  const { user } = useAuth();
-  const { invoices, deleteInvoice } = useInvoice();
+  const { user } = useAuthStore();
+  const { invoices, deleteInvoice } = useInvoiceStore();
   const [searchTerm, setSearchTerm] = useState("");
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 

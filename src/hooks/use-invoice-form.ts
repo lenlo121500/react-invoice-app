@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useAuth } from "@/context/auth/use-auth";
-import { useInvoice } from "@/context/invoice/use-invoice";
-import { type Product } from "@/context/invoice/invoice-context";
+import { useAuthStore } from "@/store/useAuthStore";
+import { useInvoiceStore, type Product } from "@/store/useInvoiceStore";
 
 export const useInvoiceForm = () => {
   const { id } = useParams();
-  const { user } = useAuth();
+  const { user } = useAuthStore();
   const { addInvoice, updateInvoice, getInvoice, generateInvoiceNumber } =
-    useInvoice();
+    useInvoiceStore();
 
   const [invoiceNumber, setInvoiceNumber] = useState("");
   const [date, setDate] = useState("");
